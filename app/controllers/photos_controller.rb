@@ -27,11 +27,18 @@ class PhotosController < ApplicationController
   def update 
     @photo = Photo.find params[:id]
     if @photo.update photo_params
-      redirect_to @photo, notice: "Photo updated."
+      redirect_to @photo, notice: "Photo updated." #notice is a blue box (find more info in application.html.erb)
     else
       render :edit
     end
   end
+  
+  def destroy
+    @photo = Photo.find params[:id]
+    @photo.destroy
+    redirect_to photos_path, alert: "Photo deleted." #alert is a red box
+  end
+  
   
   private
   
