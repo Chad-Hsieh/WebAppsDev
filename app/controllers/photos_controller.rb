@@ -10,15 +10,16 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new photo_params
     if @photo.save
-      redirect_to photo_path, notice: "Photo created."
+      redirect_to photos_path, notice: "Photo created."
     else
+      render :new 
     end
   end
   
   private
   
   def photo_params
-    params.require(:photo).permit(:photo_url,description,hashtag)
+    params.require(:photo).permit(:photo_url,:description,:hashtag)
   end
   
 end

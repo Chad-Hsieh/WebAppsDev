@@ -12,8 +12,18 @@
   </head>
 
   <body>
-    
-    
+    <!--Begin Flash Message-->
+    <div id="flash-messages" class="row">
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name == 'notice' ? 'primary' : 'danger' %> alert-dismissable col" role="alert">
+          <%= msg %>
+          <button type="button" class="class" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
+    </div>
+    <!--End Flash Message-->
     
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <%= link_to "Aloha", root_path, class: "navbar-brand" %>
