@@ -2,15 +2,17 @@ class PhotosController < ApplicationController
   before_action :load_photo, except: [:index, :new, :create]
   
   
-  
+  # GET, /photos
   def index
     @photos = Photo.all
   end
   
+  # GET, /photos/new
   def new
     @photo = Photo.new
   end
   
+  #POST, /photos
   def create
     @photo = Photo.new photo_params
     if @photo.save
@@ -20,12 +22,15 @@ class PhotosController < ApplicationController
     end
   end
   
+  # GET, /photos/:id
   def show
   end  
   
+  # GET, /photos/:id/edit
   def edit
   end
   
+  # PATCH/PUT, /photos/:id
   def update 
     if @photo.update photo_params
       redirect_to @photo, notice: "Photo updated." #notice is a blue box (find more info in application.html.erb)
@@ -34,6 +39,7 @@ class PhotosController < ApplicationController
     end
   end
   
+  #DELETE, photos/:id
   def destroy
     @photo.destroy
     redirect_to photos_path, alert: "Photo deleted." #alert is a red box
