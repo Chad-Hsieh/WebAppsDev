@@ -1,5 +1,5 @@
 <div id="task_<%= photo.id %>" class="border border-info photo shadow p-3 mb-5 bg-white rounded">
-    <p><strong>URL:</strong> <%= link_to_unless_current photo.photo_url, photo %></p>
-    <p><strong>Description:</strong> <%= photo.description %></p>
-    <p><strong>Hashtag:</strong> <%= photo.hashtag %></p>
+    <p class="list-group-item list-group-item-action list-group-item-primary"><strong>URL:</strong> <%= link_to_unless_current photo.photo_url, photo %></p>
+    <p class="list-group-item list-group-item-action list-group-item-success"><strong>Description:</strong> <%= photo.description %></p>
+    <p class="list-group-item list-group-item-action list-group-item-warning"><strong>Hashtag:</strong> <%= photo.hashtag %></p>
 </div>
