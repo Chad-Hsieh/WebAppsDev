@@ -1,9 +1,13 @@
+<div class="card">
+  <div class="card-body">
 
-<div id="comment_<%= comment.id %>" class="comment">
-  <p><strong>Cotent:</strong> <%= link_to_unless_current comment.content, photo_comment_path(@photo,comment) %></p>
-  <p><strong>Time:</strong> <%= comment.time %></p>
-  <%= link_to "Edit", edit_photo_comment_path(@photo,comment), class:"btn btn-outline-primary" %> 
-  <%= link_to "Delete", photo_comment_path(@photo,comment), method: :delete, data: {confirm: "Are you sure"}, class:"btn btn-outline-danger" %> 
-  <p></p>
+    <div id="comment_<%= comment.id %>" class="comment">
+      <p><strong>Cotent:</strong> <%= link_to_unless_current comment.content, photo_comment_path(@photo,comment) %></p>
+      <p><strong>Time:</strong> <%= comment.time %></p>
+      <%= link_to "Edit", edit_photo_comment_path(@photo,comment), class:"btn btn-outline-primary" %> 
+      <%= link_to "Delete", photo_comment_path(@photo,comment), method: :delete, data: {confirm: "Are you sure"}, class:"btn btn-outline-danger" %> 
+      <p></p>
+    </div>
+
+  </div>
 </div>
-

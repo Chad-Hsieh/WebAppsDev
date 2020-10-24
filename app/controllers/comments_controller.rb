@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new comment_params
     @comment.photo = @photo
     if @photo.comments << @comment
-      redirect_to photo_comments_path(@photo), notice: "Comment created."
+      redirect_to photo_path(@photo), notice: "Comment created."
     else
       render :new
     end
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
   
   def update
     if @comment.update comment_params
-      redirect_to [@photo,@comment], notice: "Comment updated."
+      redirect_to [@photo], notice: "Comment updated."
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
   
   def destroy
     @comment.destroy
-    redirect_to photo_comments_path(@photo)
+    redirect_to photo_path(@photo)
   end 
   
   private

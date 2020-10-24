@@ -1,12 +1,17 @@
-<br>
-
-<h2>Create a new comment</h2>
-<br>
-<%= bootstrap_form_with(model: [@photo, @comment], local:true, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f|%>
-    <%= f.alert_message "Please fix the errors below.", error_summary: false %>
-    <%= f.text_field :content %>
-    <%= f.datetime_field :time %>
-    <%= f.form_group do %>
-      <%= f.primary @comment.persisted? ? "Update Comment" : "Create Comment" %>
+<div class="card bg-light mb-3">
+  <div class="card-body">
+    <br>
+    <h2><%= @comment.persisted? ? "Update a comment" : "Create a new comment" %></h2>
+    <br>
+    <p></p>
+    <%= bootstrap_form_with(model: [@photo, @comment], local:true, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f|%>
+        <%= f.alert_message "Please fix the errors below.", error_summary: false %>
+        <%= f.text_field :content %>
+        <%= f.datetime_field :time %>
+        <br>
+        <%= f.form_group do %>
+          <%= f.primary @comment.persisted? ? "Update Comment" : "Create Comment" %>
+        <% end %>
     <% end %>
-<% end %>
+  </div>
+</div>
