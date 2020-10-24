@@ -24,6 +24,7 @@ class PhotosController < ApplicationController
   
   # GET, /photos/:id
   def show
+    @comment = Comment.new #for the nil:NilClass error
   end  
   
   # GET, /photos/:id/edit
