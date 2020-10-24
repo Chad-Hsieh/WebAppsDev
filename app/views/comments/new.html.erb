@@ -1,10 +1,5 @@
 <% title "New Comment" %>
 
-<%= bootstrap_form_with(model: [@photo, @comment], local:true,layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f|%>
-    <%= f.alert_message "Please fix the errors below.", error_summary: false %>
-    <%= f.text_field :content %>
-    <%= f.datetime_field :time %>
-    <%= f.form_group do %>
-      <%= f.primary "Create Comment" %>
-    <% end %>
-<% end %>
+<%= render 'form' %>
+
+<%= link_to "Cancel", photo_comments_path(@photo) %>
