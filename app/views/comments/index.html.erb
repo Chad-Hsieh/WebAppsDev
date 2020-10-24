@@ -2,4 +2,6 @@
 
 <%= render @comments %>
 
+<br>
 <%= link_to "New Comment", new_photo_comment_path(@photo), class: "btn btn-primary" %>
+<%= link_to "Photo & Comments", photo_path(@photo), class:"btn btn-outline-dark" %>
