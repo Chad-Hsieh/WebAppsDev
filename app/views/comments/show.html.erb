@@ -1,0 +1,7 @@
+<% title @comment.content %>
+
+<%= render @comment %>
+
+<%= link_to "Edit", edit_photo_comment_path(@photo,@comment), class:"btn btn-outline-primary" %> 
+<%= link_to "Delete", photo_comment_path(@photo,@comment), method: :delete, data: {confirm: "Are you sure"}, class:"btn btn-outline-danger" %> 
+<%= link_to "All Comments", photo_comments_path(@photo), class:"btn btn-outline-dark" %>

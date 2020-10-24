@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :photos
+  
+  resources :photos do
+    resources :comments
+  end
+  
+  # get photos/6/comments/2
   
   root to: 'home#index'
   get "about" => 'home#about'

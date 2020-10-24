@@ -1,0 +1,6 @@
+
+<div id="comment_<%= comment.id %>" class="comment">
+  <p><strong>Cotent:</strong> <%= link_to_unless_current comment.content, photo_comment_path(@photo,comment) %></p>
+  <p><strong>Time:</strong> <%= comment.time %></p>
+</div>
+
