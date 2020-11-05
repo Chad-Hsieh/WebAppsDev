@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'users/index'
+  resources :users
   resources :photos do
     resources :comments
   end
