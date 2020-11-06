@@ -1,10 +1,11 @@
 class PhotosController < ApplicationController
+  before_action :authenticate
   before_action :load_photo, except: [:index, :new, :create]
   
   
   # GET, /photos
   def index
-    @photos = Photo.all
+      @photos = Photo.all
   end
   
   # GET, /photos/new

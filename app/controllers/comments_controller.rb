@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate
   before_action :load_photo
   before_action :load_comment, except: [:index, :new, :create]
   
