@@ -44,7 +44,7 @@ class CommentsController < ApplicationController
   private
   
   def load_photo
-    @photo = Photo.find params[:photo_id] #/photos/54/comments
+    @photo = current_user.photos.find params[:photo_id] #/photos/54/comments
   end
   
   def load_comment

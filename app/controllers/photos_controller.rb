@@ -5,7 +5,8 @@ class PhotosController < ApplicationController
   
   # GET, /photos
   def index
-      @photos = Photo.all
+      @photos = current_user.photos
+      
   end
   
   # GET, /photos/new
@@ -16,6 +17,7 @@ class PhotosController < ApplicationController
   #POST, /photos
   def create
     @photo = Photo.new photo_params
+    @photo.user = current_user #assign the new photo to the current user
     if @photo.save
       redirect_to photos_path, notice: "Photo created."
     else
@@ -51,7 +53,7 @@ class PhotosController < ApplicationController
   private
   
   def load_photo
-    @photo = Photo.find params[:id]
+    @photo = current_user.photos.find params[:id]
   end
   
   def photo_params
