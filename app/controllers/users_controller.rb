@@ -23,6 +23,23 @@ class UsersController < ApplicationController
     @user = current_user
   end
   
+  def edit
+  end
+  
+  def update 
+    if current_user.update user_params
+      redirect_to root_path, notice: "User updated."
+    else
+      render :edit
+    end
+  end
+  
+  def destroy
+    current_user.destroy
+    logout
+    redirect_to root_path, alert: "User deleted."
+  end
+  
   private
   
   def user_params
