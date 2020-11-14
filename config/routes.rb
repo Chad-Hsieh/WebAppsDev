@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get "signup" => 'users#new'
   get "login" => 'sessions#new'
   get "logout" => 'sessions#destroy'
+  get '/auth/:provider/callback', to: 'authentications#create'
+  
   resources :users
   resources :sessions
   resources :photos do
