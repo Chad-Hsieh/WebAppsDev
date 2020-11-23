@@ -1,6 +1,6 @@
 <%= bootstrap_form_with(model: @photo, local: true, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
   <%= f.alert_message "Please fix the errors below.", error_summary: false %>
-  <%= f.file_field :photo_url %>
+  <%= f.file_field(:photo_url) %>
   <%= f.text_field :description %>
   <%= f.text_field :hashtag %>
   <%= f.form_group do %>
