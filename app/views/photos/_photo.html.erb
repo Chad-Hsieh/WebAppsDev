@@ -1,5 +1,6 @@
 <div id="photo_<%= photo.id %>" class="border border-info photo shadow p-3 mb-5 bg-white rounded">
-    <p class="list-group-item list-group-item-action list-group-item-primary"><strong>URL:</strong> <img src="<%= link_to_unless_current photo.photo_url %>"> <%= link_to_unless_current "click me", photo %></p>
+    <p class="list-group-item list-group-item-action list-group-item-primary"><strong><%= link_to_unless_current "Photo:", photo %> </strong> 
+        <img src="<%= photo.photo_url %>" class="rounded mx-auto d-block"> </p>
     <p class="list-group-item list-group-item-action list-group-item-success"><strong>Description:</strong> <%= photo.description %></p>
     <p class="list-group-item list-group-item-action list-group-item-warning"><strong>Hashtag:</strong> <%= photo.hashtag %></p>
 </div>
