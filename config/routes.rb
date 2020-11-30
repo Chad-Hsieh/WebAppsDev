@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :sessions
   resources :photos do
     resources :comments
+    collection do
+      get :search # create a new path for searching
+    end
   end
   
   # get photos/6/comments/2
