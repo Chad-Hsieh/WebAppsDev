@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   before_action :authenticate
-  before_action :load_photo, except: [:index, :new, :create]
+  before_action :load_photo, except: [:index, :new, :create, :search]
   
   
   # GET, /photos
@@ -49,6 +49,13 @@ class PhotosController < ApplicationController
     redirect_to photos_path, alert: "Photo deleted." #alert is a red box
   end
   
+  def search
+    if params[:search].blank?
+      @photos = Photo.all
+    else
+      @photos = Photo.search(params)
+    end
+  end
   
   private
   
