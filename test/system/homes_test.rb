@@ -6,4 +6,10 @@ class HomesTest < ApplicationSystemTestCase
   
     assert_selector "h1", text: "Welcome"
   end
+  
+  test "visiting the about page" do
+    visit about_url
+  
+    assert_selector "h1", text: "About"
+  end
 end
