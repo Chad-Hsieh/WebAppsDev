@@ -34,7 +34,7 @@ class PhotosTest < ApplicationSystemTestCase
     
   end
   
-  test "update Photo testing" do
+  test "update Photo test" do
     user = login_user
     photo1 = FactoryBot.create :photo, user: user
     
@@ -45,6 +45,21 @@ class PhotosTest < ApplicationSystemTestCase
     click_button "Update Photo"
     
     assert_text "Photo updated"
+  end
+  
+  test "delete Photo test" do
+    user = login_user
+    photo1 = FactoryBot.create :photo, user: user
+    
+    visit photo_path(photo1.id)
+    click_on "Delete"
+    page.driver.browser.switch_to.alert.accept #accept the delete alert
+    
+    refute_selector "Photo url", text: photo1.photo_url
+    refute_selector "Description", text: photo1.description
+    refute_selector "Hashtag", text: photo1.hashtag
+    
+    assert_text "Photo deleted"
   end
   
 end
