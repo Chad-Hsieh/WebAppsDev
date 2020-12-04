@@ -8,9 +8,29 @@ class PhotosTest < ApplicationSystemTestCase
     
     visit photos_path
     
+    assert_selector "h1", text: "Photos"
     assert_text photo1.description
     assert_text photo2.description
   
-    # assert_selector "h1", text: "Photos"
+  end
+  
+  test "logged out users cannot see photos" do
+    visit photos_path
+    
+    assert_equal page.current_path, login_path
+    assert_text "You need to login"
+  end
+  
+  test "create a new photo" do
+    user = login_user
+    visit photos_path
+    
+    click_on "New Photo"
+    fill_in "Description", with: "description testing"
+    fill_in "Hashtag", with: "hashtag testing"
+    click_button "Create Photo"
+    
+    assert_text "Photo created"
+    
   end
 end

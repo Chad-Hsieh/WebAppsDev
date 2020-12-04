@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
+  # test 'valid comment' do
+  #   comment = FactoryBot.build :comment
+  #   assert comment.valid?
   # end
 end
