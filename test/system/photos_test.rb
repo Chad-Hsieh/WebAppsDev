@@ -33,4 +33,18 @@ class PhotosTest < ApplicationSystemTestCase
     assert_text "Photo created"
     
   end
+  
+  test "update Photo testing" do
+    user = login_user
+    photo1 = FactoryBot.create :photo, user: user
+    
+    visit photo_path(photo1.id)
+    click_on "Edit"
+    fill_in "Description", with: "UPDATE description testing"
+    fill_in "Hashtag", with: "UPDATE testing"
+    click_button "Update Photo"
+    
+    assert_text "Photo updated"
+  end
+  
 end
