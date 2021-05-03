@@ -11,9 +11,5 @@ FactoryBot.define do
         f.sequence(:hashtag) { |n| "Photo_hashtag #{n}" }
         f.association :user
     end
-    # factory :comment do |f|
-    #     f.sequence(:content) { |n| "Test Comment #{n}" }
-    #     f.time { Time.zone.now+1.day }
-    #     f.association :user
-    # end
+
 end

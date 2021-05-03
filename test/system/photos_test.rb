@@ -9,6 +9,7 @@ class PhotosTest < ApplicationSystemTestCase
     visit photos_path
     
     assert_selector "h1", text: "Photos"
+    
     assert_text photo1.description
     assert_text photo2.description
   
@@ -28,6 +29,7 @@ class PhotosTest < ApplicationSystemTestCase
     click_on "New Photo"
     fill_in "Description", with: "description testing"
     fill_in "Hashtag", with: "hashtag testing"
+    
     click_button "Create Photo"
     
     assert_text "Photo created"
@@ -39,9 +41,12 @@ class PhotosTest < ApplicationSystemTestCase
     photo1 = FactoryBot.create :photo, user: user
     
     visit photo_path(photo1.id)
+    
     click_on "Edit"
+    
     fill_in "Description", with: "UPDATE description testing"
     fill_in "Hashtag", with: "UPDATE testing"
+    
     click_button "Update Photo"
     
     assert_text "Photo updated"
@@ -52,10 +57,11 @@ class PhotosTest < ApplicationSystemTestCase
     photo1 = FactoryBot.create :photo, user: user
     
     visit photo_path(photo1.id)
+    
     click_on "Delete"
+    
     page.driver.browser.switch_to.alert.accept #accept the delete alert
     
-    refute_selector "Photo url", text: photo1.photo_url
     refute_selector "Description", text: photo1.description
     refute_selector "Hashtag", text: photo1.hashtag
     
